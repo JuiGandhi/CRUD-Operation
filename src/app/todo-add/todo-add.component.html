@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="card ">
+        <div class="card-header bg-primary text-white">Add Form</div>
+        <div class="card-body">
+            <form [formGroup]="myForm" novalidate>
+                <div class="form-group">
+                    <label for="txtInput1">Title</label>
+                    <input type="text" class="form-control" id="txtInput1" placeholder="Enter Title"
+                        formControlName="todo_title" #todo_title>
+                </div>
+                <div *ngIf="myForm.controls['todo_title'].invalid && (myForm.controls['todo_title'].dirty) 
+                    || myForm.controls['todo_title'].touched">
+                        <div *ngIf="myForm.controls['todo_title'].errors?.['required']"  class="alert alert-danger">
+                             Enter Title
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="txtInput2">Details</label>
+                    <input type="text" class="form-control" id="txtInput1" placeholder="Enter Details"
+                        formControlName="todo_details" #todo_details>
+                </div>
+                <div *ngIf="myForm.controls['todo_details'].invalid && (myForm.controls['todo_details'].dirty) 
+                    || myForm.controls['todo_details'].touched" >
+                        <div *ngIf="myForm.controls['todo_details'].errors?.['required']" class="alert alert-danger">
+                             Enter Details
+                        </div>
+                </div>
+                <div class="form-group">
+                    <br />
+                    <button type="submit" class="btn btn-primary" 
+                        [disabled]="myForm.pristine || myForm.invalid">Submit</button>
+                </div>
+                <!--
+                    (click)="SaveData(todo_title.value,todo_details.value)"
+                -->
+            </form>
+        </div>
+    </div>
+</div>

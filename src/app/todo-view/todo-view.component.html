@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Todo List</h2>
+<table class="table table-striped">
+    <thead >
+        <tr class="table-primary">
+            <td>ID</td>
+            <td>Title</td>
+            <td>Details</td>
+        </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let mydata of todom;let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{mydata.todo_title}}</td>
+        <td>{{mydata.todo_details}}</td>
+    </tr>
+</tbody>
+</table>
+</div>
